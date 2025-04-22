@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        /* Estilo del navbar */
+        .navbar {
+            border: 5px solid;
+            border-color: black pink; /* Borde negro y rosa pastel */
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #ffe4e1; /* Fondo de rosa pastel */
+        }
+
+        /* Estilo de los elementos del navbar */
+        .navbar .item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Hace que sean circulares */
+            background-color: #add8e6; /* Color celeste */
+            color: black;
+            font-weight: bold;
+            margin: 10px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Estilo al pasar el mouse */
+        .navbar .item:hover {
+            background-color: #87ceeb; /* Azul más vibrante */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="item">Menú</a>
+        <a href="#" class="item">Temas</a>
+        <a href="#" class="item">Tipos</a>
+        <a href="#" class="item">Logos</a>
+    </nav>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel</title>
+    <style>
+        /* Estilo del contenedor del carrusel */
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 400px; /* Ancho del carrusel */
+            height: 300px; /* Alto del carrusel */
+            margin: auto;
+            border: 2px solid black;
+            position: relative;
+        }
+
+        /* Estilo de las imágenes del carrusel */
+        .carousel img {
+            width: 400px; /* Mismo ancho para todas las imágenes */
+            height: 300px; /* Mismo alto para todas las imágenes */
+            object-fit: cover; /* Ajustar contenido a las dimensiones */
+            transition: transform 0.5s ease;
+        }
+
+        /* Botones del carrusel */
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbrandemia.org%2Fla-formula-1-renueva-su-logo-despues-de-23-anos&psig=AOvVaw3XOoycXl3uxggUhPsDDaT9&ust=1744804016385000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODf3c_72YwDFQAAAAAdAAAAABAE" alt="Imagen 1">
+        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.16valvulas.com.ar%2Fformula-1-f1-equipos-autos-pilotos-circuitos-calendario-horarios-y-donde-ver-las-carreras%2F&psig=AOvVaw2WtZ6bA4nt5HcVKM3Sl0lx&ust=1744804177064000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKihkpP92YwDFQAAAAAdAAAAABAE" alt="Imagen 2">
+        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.grandprix247.com%2F2025%2F03%2F11%2Franking-formula-1-teams-and-drivers-ahead-of-australian-2025-season-opener-preview%2F&psig=AOvVaw2WtZ6bA4nt5HcVKM3Sl0lx&ust=1744804177064000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKihkpP92YwDFQAAAAAdAAAAABAP" alt="Imagen 3">
+        <div class="carousel-buttons">
+            <button id="prev">❮</button>
+            <button id="next">❯</button>
+        </div>
+    </div>
+
+    <script>
+        // Lógica del carrusel
+        const carousel = document.querySelector('.carousel');
+        const images = carousel.querySelectorAll('img');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+
+        let index = 0;
+
+        function showImage() {
+            const offset = -index * 400; // 400px es el ancho de las imágenes
+            images.forEach(img => img.style.transform = `translateX(${offset}px)`);
+        }
+
+        prevButton.addEventListener('click', () => {
+            index = (index > 0) ? index - 1 : images.length - 1;
+            showImage();
+        });
+
+        nextButton.addEventListener('click', () => {
+            index = (index < images.length - 1) ? index + 1 : 0;
+            showImage();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+        
